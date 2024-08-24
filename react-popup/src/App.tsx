@@ -51,7 +51,11 @@ loader.config({ paths: { vs: 'vs' } });
 
 function App() {
 
-  const [language, setLanguage] = useState<DropDownItem>(monacoLanguages[0]);
+  // const [language, setLanguage] = useState<DropDownItem>(monacoLanguages[0]);
+  const language: DropDownItem = {
+    name: "Markdown",
+    value: "markdown"
+  }
   const [callbackTabId, setCallbackTabId] = useState<number | undefined>(undefined);
   const [elementId, setElementId] = useState<string | undefined>(undefined);
 
@@ -159,7 +163,7 @@ function App() {
       return;
     }
 
-    setLanguage(matchingLanguage);
+    // setLanguage(matchingLanguage);
     setCallbackTabId(config.data.callbackTabId);
     setElementId(config.data.elementId);
 
@@ -199,7 +203,7 @@ function App() {
             height="100%"
             width="100%"
             theme="vs-dark"
-            language={language.value}
+            language="markdown"
             onMount={editorDidMount}
             options={{
               selectOnLineNumbers: true,
@@ -217,11 +221,11 @@ function App() {
       <div className='flex flex-row w-full justify-end bg-darkgray border-t-[1px] border-lightgray border-solid'>
 
         {/* language dropdown */}
-        <DropDown
+        {/* <DropDown
           items={monacoLanguages}
           selectedItem={language}
           setSelectedItem={setLanguage}
-        />
+        /> */}
         <div className='h-full hidden sm:flex sm:flex-row'>
           {/* join lines button */}
           <button
