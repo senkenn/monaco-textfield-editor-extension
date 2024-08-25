@@ -1,4 +1,8 @@
 {
+  "name": "extension",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "@types/chrome": "^0.0.253"
   },
